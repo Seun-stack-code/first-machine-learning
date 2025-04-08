@@ -1,0 +1,27 @@
+# Understanding the iris dataset
+
+```{r}
+#Import necessary library
+library(ggplot2)
+library(dplyr)
+library(skimr)
+```
+
+## Loading the iris Dataset🤓
+
+```{r}
+irs<-datasets::iris3
+irs<-data.frame(irs)
+View(irs)
+```
+
+## Dataset information💯
+
+```{r}
+#structure of the dataset
+str(irs)
+summary(irs)
+skim(irs)
+```
+
+## Assignment:remove the space in th column names and use regex to change the l to length and w to width.
