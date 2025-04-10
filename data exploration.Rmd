@@ -24,4 +24,18 @@ summary(irs)
 skim(irs)
 ```
 
-## Assignment:remove the space in th column names and use regex to change the l to length and w to width.
+## TASK🍩
+
+### Remove the spaces and replace the l and w to length and width
+
+```{r}
+# Clean column names: Remove spaces, update 'l' to 'length', 'w' to 'width', add hyphen for separation, and replace full stops
+colnames(irs) <- gsub(" ", "", colnames(irs))                      # Remove spaces
+colnames(irs) <- gsub("l", "length", colnames(irs), ignore.case = TRUE)  # Replace 'l' with 'length'
+colnames(irs) <- gsub("w", "width", colnames(irs), ignore.case = TRUE)   # Replace 'w' with 'width'
+colnames(irs) <- gsub("\\.", "-", colnames(irs))                   # Replace full stops with hyphens
+colnames(irs) <- gsub("(?<=[a-zA-Z])(?=[A-Z])", "-", colnames(irs), perl = TRUE)  # Add hyphens between camel-case words
+
+# Verify updated column names
+print(colnames(irs))
+```
